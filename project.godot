@@ -21,8 +21,11 @@ config/icon="res://icon.png"
 
 [display]
 
-window/size/height=768
+window/size/width=512
+window/size/height=384
 window/size/resizable=false
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [input]
 
@@ -53,6 +56,10 @@ ui_up={
 
 2d_physics/layer_1="World"
 2d_physics/layer_2="Player"
+2d_physics/layer_3="PlayerHurtbox"
+2d_physics/layer_4="EnemyHurtbox"
+2d_physics/layer_5="Enemy"
+2d_physics/layer_6="Rooms"
 
 [rendering]
 
