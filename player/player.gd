@@ -43,20 +43,19 @@ func _physics_process(delta):
 
 
 func _on_RoomDetector_area_entered(area):
-	# handle camera movement
-	var collision_shape = area.get_node("CollisionShape2D")
-	var size = collision_shape.shape.extents*2
-	
-	var view_size = get_viewport_rect().size
-	if size.y < view_size.y:
-		size.y = view_size.y
-	
-	if size.x < view_size.x:
-		size.x = view_size.x
-	
 	var camera = $Camera2D
-	camera.limit_top = collision_shape.global_position.y - size.y/2
-	camera.limit_left = collision_shape.global_position.x - size.x/2
+	var collision_shape = area.get_node("CollisionShape2D")
+	var room_size = collision_shape.shape.extents*2
+	var view_size = get_viewport_rect().size
 	
-	camera.limit_bottom = camera.limit_top + size.y
-	camera.limit_right = camera.limit_left + size.x
+	# resize the camera zoom
+	var zoomScale = room_size.x / view_size.x
+	var zoomScaleAlt = room_size.y / view_size.y
+	camera.set_zoom(Vector2(min(zoomScale, zoomScaleAlt), min(zoomScale, zoomScaleAlt)))
+	
+	# set the camera limits
+	camera.limit_top = collision_shape.global_position.y - room_size.y/2
+	camera.limit_left = collision_shape.global_position.x - room_size.x/2
+	
+	camera.limit_bottom = camera.limit_top + room_size.y
+	camera.limit_right = camera.limit_left + room_size.x

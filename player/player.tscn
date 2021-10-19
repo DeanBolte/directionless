@@ -31,4 +31,8 @@ shape = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+process_mode = 0
+limit_smoothed = true
+smoothing_enabled = true
+smoothing_speed = 10.0
 [connection signal="area_entered" from="RoomDetector" to="." method="_on_RoomDetector_area_entered"]
