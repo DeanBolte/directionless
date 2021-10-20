@@ -12,7 +12,7 @@ export var DASH_COOLDOWN = 0.4
 
 onready var AnimationPlayer = $AnimationPlayer
 
-enum { MOVE, DASH }
+enum { MOVE, DASH, RESTARTING }
 
 var velocity = Vector2.ZERO
 var facing = Vector2.RIGHT
@@ -40,6 +40,10 @@ func move_state(delta):
 		facing.x = hmove
 	if vmove != 0:
 		facing.y = vmove
+	
+	# restart game
+	if Input.get_action_strength("ui_restart"):
+		restart()
 	
 	# horizontal movement
 	if abs(velocity.x) < MAX_VELOCITY:
@@ -78,6 +82,9 @@ func dash_state(delta):
 
 func dash_end():
 	state = MOVE
+
+func restart():
+	get_tree().change_scene("res://scenes/Scene_1.tscn")
 
 func _on_RoomDetector_area_entered(area):
 	var camera = $Camera2D

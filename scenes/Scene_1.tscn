@@ -77,11 +77,10 @@ collision_mask = 0
 shape = SubResource( 4 )
 
 [node name="Room_3" type="Area2D" parent="."]
-position = Vector2( 224, -256 )
+position = Vector2( 192, -416 )
 monitoring = false
 collision_layer = 32
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room_3"]
-position = Vector2( -32, -160 )
 shape = SubResource( 5 )
