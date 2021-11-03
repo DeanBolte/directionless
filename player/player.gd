@@ -9,6 +9,7 @@ export var MIN_JUMP_MODIFIER = 2
 export var GRAVITY = 1000
 export var DASH_SPEED = 1500
 export var DASH_COOLDOWN = 0.4
+export var MAX_WALL_JUMPS = 1
 
 onready var AnimationPlayer = $AnimationPlayer
 
@@ -17,6 +18,7 @@ enum { MOVE, DASH, RESTARTING }
 var velocity = Vector2.ZERO
 var facing = Vector2.RIGHT
 var dashCoolDown = 0
+var wallJumpCount = MAX_WALL_JUMPS
 var state = MOVE
 
 func _physics_process(delta):
@@ -55,7 +57,15 @@ func move_state(delta):
 	
 	# dash
 	if Input.is_action_just_pressed("ui_dash") && dashCoolDown <= 0:
+		# if wall sliding reverse dash
+		if is_on_wall():
+			facing.x *= -1
+		
+		# reset dash cooldown and wall jumps
 		dashCoolDown = DASH_COOLDOWN
+		wallJumpCount = MAX_WALL_JUMPS
+		
+		# change state
 		state = DASH
 		AnimationPlayer.play("Dash")
 	elif dashCoolDown > 0:
@@ -69,7 +79,16 @@ func move_state(delta):
 		# jump
 		if Input.get_action_strength("ui_jump"):
 			velocity.y = -JUMP_STRENGTH
+		
+		# reset wall jumps
+		wallJumpCount = MAX_WALL_JUMPS
 	else:
+		if is_on_wall():
+			if Input.is_action_just_pressed("ui_jump") && wallJumpCount > 0:
+				velocity.y = -JUMP_STRENGTH
+				velocity.x = -hmove * JUMP_STRENGTH * 2
+				wallJumpCount = 0
+		
 		# apply friction to player in air
 		velocity.x = lerp(velocity.x, 0, AIR_FRICTION)
 		
@@ -78,6 +97,7 @@ func move_state(delta):
 			velocity.y = -JUMP_STRENGTH/MIN_JUMP_MODIFIER
 
 func dash_state(delta):
+	# dash
 	velocity.x = DASH_SPEED * facing.x
 
 func dash_end():
