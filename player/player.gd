@@ -20,6 +20,7 @@ var facing = Vector2.RIGHT
 var dashCoolDown = 0
 var wallJumpCount = MAX_WALL_JUMPS
 var state = MOVE
+var gravityDir = Vector2.DOWN
 
 func _physics_process(delta):
 	match state:
@@ -29,10 +30,11 @@ func _physics_process(delta):
 			dash_state(delta)
 	
 	# apply gravity
-	velocity.y += GRAVITY * delta
+	velocity.x += gravityDir.x * GRAVITY * delta
+	velocity.y += gravityDir.y * GRAVITY * delta
 	
 	# move player
-	velocity = move_and_slide(velocity, Vector2.UP)
+	velocity = move_and_slide(velocity, gravityDir.rotated(PI))
 
 func move_state(delta):
 	# player input
@@ -78,7 +80,8 @@ func move_state(delta):
 		
 		# jump
 		if Input.get_action_strength("ui_jump"):
-			velocity.y = -JUMP_STRENGTH
+			velocity.x = -JUMP_STRENGTH * gravityDir.x
+			velocity.y = -JUMP_STRENGTH * gravityDir.y
 		
 		# reset wall jumps
 		wallJumpCount = MAX_WALL_JUMPS

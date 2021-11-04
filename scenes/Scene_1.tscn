@@ -80,6 +80,25 @@ collision_mask = 0
 visible = false
 shape = SubResource( 3 )
 
+[node name="SwitchableWall7" parent="Rooms/Room_1" instance=ExtResource( 4 )]
+position = Vector2( 64, 224 )
+TIME = 3.0
+
+[node name="SwitchableWall8" parent="Rooms/Room_1" instance=ExtResource( 4 )]
+position = Vector2( -384, 256 )
+TIME = 18.0
+INVERSED = true
+
+[node name="SwitchableWall9" parent="Rooms/Room_1" instance=ExtResource( 4 )]
+position = Vector2( -384, 224 )
+TIME = 18.0
+INVERSED = true
+
+[node name="SwitchableWall10" parent="Rooms/Room_1" instance=ExtResource( 4 )]
+position = Vector2( -384, 192 )
+TIME = 18.0
+INVERSED = true
+
 [node name="Room_2" type="Area2D" parent="Rooms"]
 position = Vector2( 992, -112 )
 monitoring = false
@@ -90,6 +109,18 @@ collision_mask = 0
 visible = false
 shape = SubResource( 4 )
 
+[node name="SwitchableWall4" parent="Rooms/Room_2" instance=ExtResource( 4 )]
+position = Vector2( -384, -464 )
+TIME = 32.0
+
+[node name="SwitchableWall5" parent="Rooms/Room_2" instance=ExtResource( 4 )]
+position = Vector2( -384, -432 )
+TIME = 32.0
+
+[node name="SwitchableWall6" parent="Rooms/Room_2" instance=ExtResource( 4 )]
+position = Vector2( -384, -400 )
+TIME = 32.0
+
 [node name="Room_3" type="Area2D" parent="Rooms"]
 position = Vector2( -576, -416 )
 monitoring = false
@@ -99,6 +130,18 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room_3"]
 visible = false
 shape = SubResource( 5 )
+
+[node name="SwitchableWall" parent="Rooms/Room_3" instance=ExtResource( 4 )]
+position = Vector2( 1152, -96 )
+TIME = 32.0
+
+[node name="SwitchableWall2" parent="Rooms/Room_3" instance=ExtResource( 4 )]
+position = Vector2( 1152, -128 )
+TIME = 32.0
+
+[node name="SwitchableWall3" parent="Rooms/Room_3" instance=ExtResource( 4 )]
+position = Vector2( 1152, -160 )
+TIME = 32.0
 
 [node name="Room_4" type="Area2D" parent="Rooms"]
 position = Vector2( 1792, -672 )
@@ -129,29 +172,3 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/Room_6"]
 visible = false
 shape = SubResource( 8 )
-
-[node name="Objects" type="YSort" parent="."]
-
-[node name="SwitchableWall" parent="Objects" instance=ExtResource( 4 )]
-position = Vector2( 576, -512 )
-TIME = 32.0
-
-[node name="SwitchableWall2" parent="Objects" instance=ExtResource( 4 )]
-position = Vector2( 576, -544 )
-TIME = 32.0
-
-[node name="SwitchableWall3" parent="Objects" instance=ExtResource( 4 )]
-position = Vector2( 576, -576 )
-TIME = 32.0
-
-[node name="SwitchableWall4" parent="Objects" instance=ExtResource( 4 )]
-position = Vector2( 608, -576 )
-TIME = 32.0
-
-[node name="SwitchableWall5" parent="Objects" instance=ExtResource( 4 )]
-position = Vector2( 608, -544 )
-TIME = 32.0
-
-[node name="SwitchableWall6" parent="Objects" instance=ExtResource( 4 )]
-position = Vector2( 608, -512 )
-TIME = 32.0
