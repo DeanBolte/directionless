@@ -121,4 +121,4 @@ func _on_KillZoneDetector_body_entered(body):
 
 
 func _on_EndDetector_area_entered(area):
-	print("Game Over!")
+	get_tree().change_scene("res://scenes/TheEnd.tscn")
