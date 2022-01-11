@@ -87,6 +87,7 @@ ui_restart={
 2d_physics/layer_5="Enemy"
 2d_physics/layer_6="Rooms"
 2d_physics/layer_7="KillZone"
+2d_physics/layer_8="EndPortal"
 
 [rendering]
 

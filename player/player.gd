@@ -118,3 +118,7 @@ func _on_RoomDetector_area_entered(area):
 
 func _on_KillZoneDetector_body_entered(body):
 	restart()
+
+
+func _on_EndDetector_area_entered(area):
+	print("Game Over!")
