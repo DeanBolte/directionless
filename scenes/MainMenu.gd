@@ -32,9 +32,9 @@ func move_selector(move):
 
 func select_item(index):
 	match index:
-		0:
+		0: # play
 			get_tree().change_scene("res://scenes/Scene_1.tscn")
-		1:
+		1: # options
 			print("options")
-		2:
+		2: # exit
 			get_tree().quit()
