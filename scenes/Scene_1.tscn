@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://basic_sprites/backgroundtile.png" type="Texture" id=1]
 [ext_resource path="res://basic_sprites/forewall.png" type="Texture" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://basic_sprites/blue16x16.png" type="Texture" id=19]
 [ext_resource path="res://objects/EndPortal.tscn" type="PackedScene" id=20]
 [ext_resource path="res://assets/fonts/vgatype_sans_16.tres" type="DynamicFont" id=21]
+[ext_resource path="res://assets/sound/music/Swinging Pants.ogg" type="AudioStream" id=22]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -178,6 +179,11 @@ extents = Vector2( 768, 576 )
 
 [node name="Scene_1" type="Node2D"]
 
+[node name="SoundTrack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 22 )
+volume_db = -10.0
+autoplay = true
+
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 256, 192 )
 texture = ExtResource( 1 )
@@ -216,6 +222,9 @@ format = 1
 tile_data = PoolIntArray( 1966140, 0, 0, 1966141, 0, 0, 1966142, 0, 0, 1966143, 0, 0, 1966144, 0, 0, 1966145, 0, 0, 1966146, 0, 0, 1966147, 0, 0, 2031676, 0, 0, 2031727, 0, 0, 2031728, 0, 0, 2031729, 0, 0, 2031730, 0, 0, 2031731, 0, 0, 2031732, 0, 0, 2031733, 0, 0, 2097212, 0, 0, 2097269, 0, 0, 2162748, 0, 0, 2162805, 0, 0, 2228284, 0, 0, 2228341, 0, 0, 2293820, 0, 0, 2293877, 0, 0, 2359356, 0, 0, 2359413, 0, 0, 2424892, 0, 0, 2424949, 0, 0, 2490428, 0, 0, 2490485, 0, 0, 2555964, 0, 0, 2556021, 0, 0, 2621500, 0, 0, 2621557, 0, 0, 2687036, 0, 0, 2687093, 0, 0, 2752572, 0, 0, 2752629, 0, 0, 2818108, 0, 0, 2818165, 0, 0, 2883644, 0, 0, 2883701, 0, 0, 2949180, 0, 0, 2949237, 0, 0, 3014716, 0, 0, 3014773, 0, 0, 3080252, 0, 0, 3080309, 0, 0, 3145788, 0, 0, 3145845, 0, 0, 3211324, 0, 0, 3211381, 0, 0, 3276860, 0, 0, 3276917, 0, 0, 3342396, 0, 0, 3342453, 0, 0, 3407932, 0, 0, 3407989, 0, 0, 3473468, 0, 0, 3473525, 0, 0, 3539004, 0, 0, 3539061, 0, 0, 3604540, 0, 0, 3604597, 0, 0, 3670076, 0, 0, 3670133, 0, 0, 3735612, 0, 0, 3735669, 0, 0, 3801148, 0, 0, 3801205, 0, 0, 3866684, 0, 0, 3866741, 0, 0, 3932220, 0, 0, 3932277, 0, 0, 3997756, 0, 0, 3997813, 0, 0, 4063292, 0, 0, 4063349, 0, 0, 4128828, 0, 0, 4128885, 0, 0, 4194364, 0, 0, 4194421, 0, 0, 4259900, 0, 0, 4259957, 0, 0, 4325436, 0, 0, 4325493, 0, 0, 4390972, 0, 0, 4391029, 0, 0, 4456508, 0, 0, 4456565, 0, 0, 4522044, 0, 0, 4522101, 0, 0, 4587580, 0, 0, 4587637, 0, 0, 4653116, 0, 0, 4653173, 0, 0, 4718652, 0, 0, 4718709, 0, 0, 4784188, 0, 0, 4784245, 0, 0, 4849724, 0, 0, 4849781, 0, 0, 4915260, 0, 0, 4915261, 0, 0, 4915262, 0, 0, 4915263, 0, 0, 4915264, 0, 0, 4915265, 0, 0, 4915266, 0, 0, 4915267, 0, 0, 4915268, 0, 0, 4915269, 0, 0, 4915270, 0, 0, 4915271, 0, 0, 4915272, 0, 0, 4915273, 0, 0, 4915274, 0, 0, 4915275, 0, 0, 4915276, 0, 0, 4915277, 0, 0, 4915278, 0, 0, 4915279, 0, 0, 4915280, 0, 0, 4915281, 0, 0, 4915282, 0, 0, 4915283, 0, 0, 4915284, 0, 0, 4915285, 0, 0, 4915286, 0, 0, 4915287, 0, 0, 4915288, 0, 0, 4915289, 0, 0, 4915290, 0, 0, 4915291, 0, 0, 4915292, 0, 0, 4915293, 0, 0, 4915294, 0, 0, 4915295, 0, 0, 4915296, 0, 0, 4915297, 0, 0, 4915298, 0, 0, 4915299, 0, 0, 4915300, 0, 0, 4915301, 0, 0, 4915302, 0, 0, 4915303, 0, 0, 4915304, 0, 0, 4915305, 0, 0, 4915306, 0, 0, 4915307, 0, 0, 4915308, 0, 0, 4915309, 0, 0, 4915310, 0, 0, 4915311, 0, 0, 4915312, 0, 0, 4915313, 0, 0, 4915314, 0, 0, 4915315, 0, 0, 4915316, 0, 0, 4915317, 0, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 192, 400 )
+
+[node name="PlayerSpawn" type="Position2D" parent="."]
 position = Vector2( 192, 400 )
 
 [node name="Rooms" type="YSort" parent="."]
@@ -490,7 +499,7 @@ ButtonPressed = ExtResource( 14 )
 KeyPath = NodePath("../../Room_1/Key3")
 Index = 3
 
-[node name="Label" type="Label" parent="."]
+[node name="controls" type="Label" parent="."]
 margin_left = 64.0
 margin_top = 320.0
 margin_right = 104.0
@@ -498,8 +507,7 @@ margin_bottom = 334.0
 custom_fonts/font = ExtResource( 21 )
 text = "Keyboard Dash: C
 Controller Dash: Triggers
-Everything else is obvious
-(besides Y reseting the game on controller)"
+Everything else is obvious"
 __meta__ = {
 "_edit_use_anchors_": false
 }

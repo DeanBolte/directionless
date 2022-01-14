@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/fonts/vgatype_serif_128.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/fonts/vgatype_sans_16.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/fonts/vgatype_sans_64.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/sound/music/Retro Beat.ogg" type="AudioStream" id=4]
 [ext_resource path="res://scenes/MainMenu.gd" type="Script" id=5]
 
 [node name="MainMenu" type="Control"]
@@ -19,7 +20,7 @@ margin_top = 738.0
 margin_right = 880.0
 margin_bottom = 752.0
 custom_fonts/font = ExtResource( 2 )
-text = "V0.1"
+text = "V0.2"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -36,7 +37,7 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 margin_right = 704.0
-margin_bottom = 296.0
+margin_bottom = 292.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -54,7 +55,7 @@ valign = 1
 [node name="Menu" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 116.0
 margin_right = 704.0
-margin_bottom = 296.0
+margin_bottom = 292.0
 size_flags_vertical = 3
 
 [node name="Play" type="Label" parent="MarginContainer/VBoxContainer/Menu"]
@@ -70,9 +71,9 @@ __meta__ = {
 }
 
 [node name="Options" type="Label" parent="MarginContainer/VBoxContainer/Menu"]
-margin_top = 61.0
+margin_top = 60.0
 margin_right = 704.0
-margin_bottom = 117.0
+margin_bottom = 116.0
 size_flags_vertical = 6
 custom_fonts/font = ExtResource( 3 )
 text = "Options"
@@ -80,11 +81,16 @@ valign = 1
 uppercase = true
 
 [node name="Exit" type="Label" parent="MarginContainer/VBoxContainer/Menu"]
-margin_top = 123.0
+margin_top = 120.0
 margin_right = 704.0
-margin_bottom = 179.0
+margin_bottom = 176.0
 size_flags_vertical = 6
 custom_fonts/font = ExtResource( 3 )
 text = "Exit"
 valign = 1
 uppercase = true
+
+[node name="TitleScreenMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -10.0
+autoplay = true

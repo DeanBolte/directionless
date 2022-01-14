@@ -22,10 +22,6 @@ var state = MOVE
 var gravityDir = Vector2.DOWN
 
 func _physics_process(delta):
-	# restart game
-	if Input.get_action_strength("ui_restart"):
-		restart()
-	
 	match state:
 		MOVE: # player movement control
 			move_state(delta)
@@ -82,12 +78,14 @@ func move_state(delta):
 		# jump
 		if Input.get_action_strength("ui_jump"):
 			velocity -= JUMP_STRENGTH * gravityDir
+			$SoundJump.play()
 		
 	else:
 		if is_on_wall():
 			if Input.is_action_just_pressed("ui_jump"):
 				velocity += JUMP_STRENGTH * gravityDir.rotated(PI)
 				velocity += -move * JUMP_STRENGTH * gravityDir.rotated(-PI/2)
+				$SoundJump.play()
 
 func dash_state(delta):
 	velocity = gravityDir.rotated(-PI/2) * DASH_SPEED * facing
@@ -96,7 +94,8 @@ func dash_end():
 	state = MOVE
 
 func restart():
-	get_tree().change_scene("res://scenes/Scene_1.tscn")
+	var respawnPoint = get_tree().root.get_child(0).get_node("PlayerSpawn").position
+	self.position = respawnPoint
 
 func _on_RoomDetector_area_entered(area):
 	var camera = $Camera2D
@@ -118,7 +117,6 @@ func _on_RoomDetector_area_entered(area):
 
 func _on_KillZoneDetector_body_entered(body):
 	restart()
-
 
 func _on_EndDetector_area_entered(area):
 	get_tree().change_scene("res://scenes/TheEnd.tscn")
