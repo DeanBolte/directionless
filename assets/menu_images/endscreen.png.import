@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/endscreen.png-9ab8171959ebd19b81a2f1ba17e84042.stex"
+path="res://.import/endscreen.png-a5b5041aaa547748f4280d105432cc21.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://menu_text/endscreen.png"
-dest_files=[ "res://.import/endscreen.png-9ab8171959ebd19b81a2f1ba17e84042.stex" ]
+source_file="res://assets/menu_images/endscreen.png"
+dest_files=[ "res://.import/endscreen.png-a5b5041aaa547748f4280d105432cc21.stex" ]
 
 [params]
 

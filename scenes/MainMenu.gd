@@ -1,8 +1,8 @@
-extends MarginContainer
+extends Control
 
 var MENUCOUNT = 3
 
-onready var MenuOptions = $VBoxContainer/Menu
+onready var MenuOptions = $MarginContainer/VBoxContainer/Menu
 
 var selected = 0
 
@@ -17,6 +17,7 @@ func _process(_delta):
 		if i == selected:
 			MenuOptions.get_child(i).size_flags_stretch_ratio = 2
 			MenuOptions.get_child(i).margin_left = 32
+			#MenuOptions.get_child(i).font
 		else:
 			MenuOptions.get_child(i).size_flags_stretch_ratio = 1
 			MenuOptions.get_child(i).margin_left = 0

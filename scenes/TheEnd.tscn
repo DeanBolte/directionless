@@ -1,6 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://menu_text/endscreen.png" type="Texture" id=1]
+[ext_resource path="res://assets/menu_images/endscreen.png" type="Texture" id=1]
+
+
 
 [node name="TheEnd" type="Node2D"]
 
