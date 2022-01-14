@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://basic_sprites/player.png" type="Texture" id=1]
 [ext_resource path="res://player/player.gd" type="Script" id=2]
 [ext_resource path="res://assets/sound/sfx/jump1.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/sound/sfx/error_007.ogg" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15, 15 )
@@ -86,6 +87,11 @@ shape = SubResource( 5 )
 stream = ExtResource( 3 )
 volume_db = -20.0
 pitch_scale = 2.0
+
+[node name="SoundDeath" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -15.0
+pitch_scale = 0.5
 [connection signal="area_entered" from="RoomDetector" to="." method="_on_RoomDetector_area_entered"]
 [connection signal="body_entered" from="KillZoneDetector" to="." method="_on_KillZoneDetector_body_entered"]
 [connection signal="area_entered" from="EndDetector" to="." method="_on_EndDetector_area_entered"]

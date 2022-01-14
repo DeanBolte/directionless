@@ -94,6 +94,13 @@ func dash_end():
 	state = MOVE
 
 func restart():
+	# death sound
+	$SoundDeath.play()
+	
+	# reset gravity
+	gravityDir = Vector2.DOWN
+	
+	# reset position
 	var respawnPoint = get_tree().root.get_child(0).get_node("PlayerSpawn").position
 	self.position = respawnPoint
 
