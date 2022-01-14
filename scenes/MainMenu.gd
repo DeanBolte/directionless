@@ -15,8 +15,10 @@ func _process(_delta):
 	# modify appearance of menu
 	for i in range(MENUCOUNT):
 		if i == selected:
-			MenuOptions.get_child(i).margin_left = 64
+			MenuOptions.get_child(i).size_flags_stretch_ratio = 2
+			MenuOptions.get_child(i).margin_left = 32
 		else:
+			MenuOptions.get_child(i).size_flags_stretch_ratio = 1
 			MenuOptions.get_child(i).margin_left = 0
 	
 	if Input.get_action_strength("ui_accept"):
