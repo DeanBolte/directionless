@@ -85,13 +85,18 @@ shape = SubResource( 5 )
 
 [node name="SoundJump" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-volume_db = -20.0
+volume_db = -15.0
 pitch_scale = 2.0
 
 [node name="SoundDeath" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 volume_db = -15.0
 pitch_scale = 0.5
+
+[node name="SoundDash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -12.0
+pitch_scale = 2.0
 [connection signal="area_entered" from="RoomDetector" to="." method="_on_RoomDetector_area_entered"]
 [connection signal="body_entered" from="KillZoneDetector" to="." method="_on_KillZoneDetector_body_entered"]
 [connection signal="area_entered" from="EndDetector" to="." method="_on_EndDetector_area_entered"]

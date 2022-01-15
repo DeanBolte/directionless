@@ -66,6 +66,7 @@ func move_state(delta):
 		# change state
 		state = DASH
 		AnimationPlayer.play("Dash")
+		$SoundDash.play()
 	elif dashCoolDown > 0:
 		dashCoolDown -= delta
 	
